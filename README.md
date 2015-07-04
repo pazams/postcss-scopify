@@ -14,7 +14,7 @@ __Example input__
 }
 ```
 __Example output__
-`scopify('#scope')
+`scopify('#scope')`
 ```css
 #scope .foo, #scope .boo h1 {
     /* declarations */
@@ -42,5 +42,6 @@ var out = postcss()
 ```
 
 You can use PostCSS with your build tool.
-Note there are plugins for [Grunt], [Gulp], [webpack], [Broccoli], [Brunch] and [ENB].
+Note there are plugins for [Grunt], [Gulp], [webpack], [Broccoli],
+[Brunch] and [ENB]. 
 See [PostCSS] docs for examples for your environment.
