@@ -1,24 +1,29 @@
-var postcss = require('postcss');
-var expect  = require('chai').expect;
+var assert    = require('assert');
+var fs        = require('fs');
+var postcss   = require('postcss');
+var scopify = require('..');
 
-var plugin = require('../');
+function fixture(name) {
+  return fs.readFileSync('test/fixtures/' + name, 'utf8').trim();
+}
 
-var test = function (input, output, opts, done) {
-    postcss([ plugin(opts) ]).process(input).then(function (result) {
-        expect(result.css).to.eql(output);
-        expect(result.warnings()).to.be.empty;
-        done();
-    }).catch(function (error) {
-        done(error);
-    });
-};
+describe('postcss-scopify', function() {
+  it('scopes all selectors with an id', function() {
+    var output = postcss()
+                .use(scopify('#foo'))
+                .process(fixture('id.css')).css;
+    var expected = fixture('id.expected.css');
 
-describe('postcss-scopify', function () {
+    assert.equal(output, expected);
+  });
 
-    /* Write tests here
+  it('scopes all selectors with a class', function() {
+    var output = postcss()
+                .use(scopify('.boo'))
+                .process(fixture('class.css')).css;
+    var expected = fixture('class.expected.css');
 
-    it('does something', function (done) {
-        test('a{ }', 'a{ }', { }, done);
-    });*/
+    assert.equal(output, expected);
+  });
 
 });

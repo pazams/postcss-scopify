@@ -1,13 +1,57 @@
+'use strict';
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-scopify', function (opts) {
-    opts = opts || {};
+module.exports = postcss.plugin('postcss-scopify', scopify);
 
-    // Work with options here
+function scopify(scope, options) {
+   
+  options = options || {};
 
-    return function (css) {
+  return function(root) {
 
-        // Transform CSS AST here
+     // guard statment- allow only valid scopes
+     if(!isValidScope(scope)){
+        throw root.error('invalid scope', { plugin: 'postcss-scopify' });
+     }
+  
+    root.eachRule(function (rule) {
+      if (!rule.selectors){
+        return rule;
+      }
 
-    };
-});
+      rule.selectors = rule.selectors.map(function(selector) {
+        if (isScopeApplied(selector,scope)) {
+          return selector;
+        }
+
+          return scope + ' ' + selector;
+
+      });
+    });
+  };
+}
+
+/**
+ * Determine if selector is already scoped
+ *
+ * @param {string} selector
+ * @param {string} scope
+ */
+function isScopeApplied(selector,scope) {
+  return selector.indexOf(scope) === 0;
+}
+
+/**
+ * Determine if scope is valid
+ *
+ * @param {string} scope
+ */
+function isValidScope(scope) {
+    if (scope){
+        return scope.indexOf(',') ===  -1;
+    }
+    else{
+        return true;
+    }
+
+}

@@ -13,4 +13,4 @@ gulp.task('test', function () {
     return gulp.src('test/*.js', { read: false }).pipe(mocha());
 });
 
-gulp.task('default', ['lint', 'test']);
+gulp.task('default', ['test']);
