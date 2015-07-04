@@ -46,7 +46,7 @@ var scopify   = require('postcss-scopify');
 
 var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
 var out = postcss()
-          .use(scopify('#bul'))
+          .use(scopify('#scope'))
           .process(css)
           .css;
 ```
