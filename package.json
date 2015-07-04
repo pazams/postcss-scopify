@@ -1,0 +1,34 @@
+{
+  "name": "postcss-scopify",
+  "version": "0.1.0",
+  "description": "PostCSS plugin that adds a user input scope to each selector",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "scope",
+    "scoped css"
+  ],
+  "author": "pazams <maorfone@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pazams/postcss-scopify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pazams/postcss-scopify/issues"
+  },
+  "homepage": "https://github.com/pazams/postcss-scopify",
+  "dependencies": {
+    "postcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^0.14.0",
+    "gulp-mocha": "^2.1.2"
+  },
+  "scripts": {
+    "test": "gulp"
+  }
+}
