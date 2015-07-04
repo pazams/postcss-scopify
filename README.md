@@ -2,6 +2,16 @@
 
 [PostCSS] plugin that adds a user input scope to each selector.
 
+[`poststylus`]: https://github.com/seaneking/poststylus
+[PostCSS API]:  https://github.com/postcss/postcss/blob/master/docs/api.md
+[Broccoli]:     https://github.com/jeffjewiss/broccoli-postcss
+[CLI tool]:     https://github.com/code42day/postcss-cli
+[webpack]:      https://github.com/postcss/postcss-loader
+[Brunch]:       https://github.com/iamvdo/postcss-brunch
+[Grunt]:        https://github.com/nDmitry/grunt-postcss
+[Gulp]:         https://github.com/postcss/gulp-postcss
+[ENB]:          https://github.com/theprotein/enb-postcss
+
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/pazams/postcss-scopify.svg
 [ci]:      https://travis-ci.org/pazams/postcss-scopify
