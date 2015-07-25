@@ -1,6 +1,6 @@
 {
   "name": "postcss-scopify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "PostCSS plugin that adds a user input scope to each selector",
   "keywords": [
     "postcss",
