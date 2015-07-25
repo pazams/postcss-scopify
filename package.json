@@ -7,9 +7,10 @@
     "css",
     "postcss-plugin",
     "scope",
-    "scoped css"
+    "scoped css",
+    "css post processing"
   ],
-  "author": "pazams <maorfone@gmail.com>",
+  "author": "pazams <maorzams@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
