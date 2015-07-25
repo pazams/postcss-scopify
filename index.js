@@ -51,7 +51,7 @@ function isValidScope(scope) {
         return scope.indexOf(',') ===  -1;
     }
     else{
-        return true;
+        return false;
     }
 
 }
