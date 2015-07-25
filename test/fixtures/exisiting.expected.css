@@ -1,0 +1,11 @@
+.boo .Component {
+  color: green;
+}
+
+.boo .Component.is-disabled .Subcomponent.is-done {
+  box-sizing: border-box;
+}
+
+.boo .Component.is-disabled, .boo .Subcomponent.is-done > h1 {
+  color: white;
+}

@@ -26,4 +26,13 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
+  it('does NOT adds a scope if it already exists', function() {
+    var output = postcss()
+                .use(scopify('.boo'))
+                .process(fixture('exisiting.css')).css;
+    var expected = fixture('exisiting.expected.css');
+
+    assert.equal(output, expected);
+  });
+
 });
