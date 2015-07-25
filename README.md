@@ -1,6 +1,7 @@
 # PostCSS Scopify [![Build Status][ci-img]][ci]
 
 [PostCSS] plugin that adds a user input scope to each selector.
+for a command line interface, see [scopify-cli]. 
 
 [`poststylus`]: https://github.com/seaneking/poststylus
 [PostCSS API]:  https://github.com/postcss/postcss/blob/master/docs/api.md
@@ -12,6 +13,7 @@
 [Gulp]:         https://github.com/postcss/gulp-postcss
 [ENB]:          https://github.com/theprotein/enb-postcss
 
+[scopify-cli]: https://github.com/pazams/scopify-cli
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/pazams/postcss-scopify.svg
 [ci]:      https://travis-ci.org/pazams/postcss-scopify
