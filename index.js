@@ -38,7 +38,8 @@ function scopify(scope, options) {
  * @param {string} scope
  */
 function isScopeApplied(selector,scope) {
-  return selector.indexOf(scope) === 0;
+  var selectorTopScope = selector.split(" ",1)[0];
+  return selectorTopScope === scope;
 }
 
 /**
