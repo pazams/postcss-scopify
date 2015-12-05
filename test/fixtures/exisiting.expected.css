@@ -9,3 +9,8 @@
 .boo .Component.is-disabled, .boo .Subcomponent.is-done > h1 {
   color: white;
 }
+
+/* see issue https://github.com/pazams/postcss-scopify/issues/4 */
+.boo .boo2 .Component {
+  color: green;
+}
