@@ -57,3 +57,7 @@ You can use PostCSS with your build tool.
 Note there are plugins for [Grunt], [Gulp], [webpack], [Broccoli],
 [Brunch] and [ENB]. 
 See [PostCSS] docs for examples for your environment.
+
+## Change Log
+### v0.1.4
+fixes [#4](https://github.com/pazams/postcss-scopify/issues/4)
