@@ -14,7 +14,7 @@ function scopify(scope, options) {
         throw root.error('invalid scope', { plugin: 'postcss-scopify' });
      }
   
-    root.eachRule(function (rule) {
+    root.walkRules(function (rule) {
       if (!rule.selectors){
         return rule;
       }
