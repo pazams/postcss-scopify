@@ -59,5 +59,9 @@ Note there are plugins for [Grunt], [Gulp], [webpack], [Broccoli],
 See [PostCSS] docs for examples for your environment.
 
 ## Change Log
+
+### v0.1.5
+closes [#3](https://github.com/pazams/postcss-scopify/issues/3)
+
 ### v0.1.4
 fixes [#4](https://github.com/pazams/postcss-scopify/issues/4)
