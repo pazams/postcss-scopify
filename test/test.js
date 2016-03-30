@@ -35,4 +35,19 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
+ it('does not allow invliad scopes', function() {
+     try
+     {
+         postcss()
+         .use(scopify('#foo , #boo'))
+         .process(fixture('id.css')).css;
+     }
+     catch(error){
+    assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+     }
+
+  });
+
+
+
 });
