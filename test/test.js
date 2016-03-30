@@ -35,19 +35,27 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
- it('does not allow invliad scopes', function() {
-     try
-     {
-         postcss()
-         .use(scopify('#foo , #boo'))
-         .process(fixture('id.css')).css;
-     }
-     catch(error){
-    assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
-     }
+  it('does not allow invliad scopes', function() {
+      try
+      {
+          postcss()
+          .use(scopify('#foo , #boo'))
+          .process(fixture('id.css')).css;
+      }
+      catch(error){
+          assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+      }
 
+  })
+
+  // https://github.com/pazams/postcss-scopify/issues/7
+  it('should not scope keyframe definitions', function() {
+    var output = postcss()
+                .use(scopify('#foo'))
+                .process(fixture('keyframe.css')).css;
+    var expected = fixture('keyframe.expected.css');
+
+    assert.equal(output, expected);
   });
-
-
 
 });

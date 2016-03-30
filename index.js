@@ -19,6 +19,10 @@ function scopify(scope, options) {
         return rule;
       }
 
+      if(rule.parent.type === 'atrule' && (rule.parent.name === '-webkit-keyframes' || rule.parent.name === 'keyframes')){
+        return rule;
+      };
+
       rule.selectors = rule.selectors.map(function(selector) {
         if (isScopeApplied(selector,scope)) {
           return selector;
