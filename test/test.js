@@ -35,4 +35,16 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
+  // https://github.com/pazams/postcss-scopify/issues/7
+  it('should not scope keyframe definitions', function() {
+    var output = postcss()
+                .use(scopify('#foo'))
+                .process(fixture('keyframe.css')).css;
+    var expected = fixture('keyframe.expected.css');
+
+    assert.equal(output, expected);
+  });
+
+
+
 });
