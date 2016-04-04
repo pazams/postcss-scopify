@@ -24,11 +24,19 @@ __Example input__
 .foo, .boo h1 {
     /* declarations */
 }
+
+& {
+    /* declarations */
+}
 ```
 __Example output__
 `scopify('#scope')`
 ```css
 #scope .foo, #scope .boo h1 {
+    /* declarations */
+}
+
+#scope {
     /* declarations */
 }
 ```

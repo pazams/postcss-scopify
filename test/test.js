@@ -26,6 +26,15 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
+  it('replaces & selector with a scope', function() {
+    var output = postcss()
+                .use(scopify('.boo'))
+                .process(fixture('class-container.css')).css;
+    var expected = fixture('class-container.expected.css');
+
+    assert.equal(output, expected);
+  });
+
   it('does NOT adds a scope if it already exists', function() {
     var output = postcss()
                 .use(scopify('.boo'))
