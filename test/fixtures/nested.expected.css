@@ -1,0 +1,6 @@
+/* LESS or SCSS syntax */
+.boo .Component {
+    .Subcomponent {
+        box-sizing: border-box;
+    }
+}

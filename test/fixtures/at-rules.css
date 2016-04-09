@@ -1,0 +1,60 @@
+@media screen, print {
+    .Component { line-height: 1.2 }
+}
+
+@supports (--foo: green) {
+    .Component {
+        color: green;
+    }
+}
+
+@document url(http://www.w3.org/),
+url-prefix(http://www.w3.org/Style/),
+domain(mozilla.org),
+regexp("https:.*")
+{
+    .Component {
+        color: purple;
+    }
+}
+
+@page {
+    size: auto;
+    margin: 10%;
+}
+
+@font-face {
+    font-family: MyHelvetica;
+    src: local("Helvetica Neue Bold"),
+    local("HelveticaNeue-Bold"),
+    url(MgOpenModernaBold.ttf);
+    font-weight: bold;
+}
+
+@keyframes identifier {
+    0% { top: 0; left: 0; }
+    30% { top: 50px; }
+    68%, 72% { left: 50px; }
+    100% { top: 100px; left: 100%; }
+}
+
+@counter-style circled-alpha {
+    system: fixed;
+    symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+    suffix: " ";
+}
+
+
+@font-feature-values Font One {
+    @styleset {
+        nice-style: 12;
+    }
+}
+
+@font-feature-values Font Two {
+    @styleset {
+        nice-style: 4;
+    }
+} 
+
+
