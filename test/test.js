@@ -58,4 +58,24 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
+  it('should not scope at-rules, but do scope their nested rules for conditional groups at-rules only', function() {
+    var output = postcss()
+                .use(scopify('.boo'))
+                .process(fixture('at-rules.css')).css;
+    var expected = fixture('at-rules.expected.css');
+
+    assert.equal(output, expected);
+  });
+
+
+  it('should not scope LESS/SASS style nested rules', function() {
+    var output = postcss()
+                .use(scopify('.boo'))
+                .process(fixture('nested.css')).css;
+    var expected = fixture('nested.expected.css');
+
+    assert.equal(output, expected);
+  });
+
+
 });
