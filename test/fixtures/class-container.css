@@ -1,0 +1,7 @@
+.Component {
+  color: green;
+}
+
+& {
+  color: green;
+}

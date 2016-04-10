@@ -28,6 +28,11 @@ function scopify(scope, options) {
                     return selector;
                 }
 
+                // special case for a top level '&' selector, resolves to scope
+                if (selector === '&') {
+                    return scope;
+                }
+
                 return scope + ' ' + selector;
 
             });
