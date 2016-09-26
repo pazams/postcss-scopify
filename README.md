@@ -1,4 +1,8 @@
-# PostCSS Scopify [![Build Status][ci-img]][ci]
+# PostCSS Scopify
+
+[![Build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Downloads][downloads-image]][downloads-url]
 
 [PostCSS] plugin that adds a user input scope to each selector.
 for a command line interface, see [scopify-cli]. 
@@ -13,10 +17,12 @@ for a command line interface, see [scopify-cli].
 [Gulp]:         https://github.com/postcss/gulp-postcss
 [ENB]:          https://github.com/theprotein/enb-postcss
 
-[scopify-cli]: https://github.com/pazams/scopify-cli
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/pazams/postcss-scopify.svg
-[ci]:      https://travis-ci.org/pazams/postcss-scopify
+[travis-image]: https://img.shields.io/travis/pazams/postcss-scopify.svg?style=flat-square
+[travis-url]: https://travis-ci.org/pazams/postcss-scopify
+[coveralls-image]: https://img.shields.io/coveralls/pazams/postcss-scopify.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/pazams/postcss-scopify
+[downloads-image]: https://img.shields.io/npm/dm/postcss-scopify.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/postcss-scopify
 
 __Example input__
 

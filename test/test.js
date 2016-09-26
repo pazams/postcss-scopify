@@ -55,7 +55,20 @@ describe('postcss-scopify', function() {
           assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
       }
 
-  })
+  });
+
+  it('treats empty scopes as invalid', function() {
+      try
+      {
+          postcss()
+          .use(scopify(''))
+          .process(fixture('id.css')).css;
+      }
+      catch(error){
+          assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+      }
+
+  });
 
   // https://github.com/pazams/postcss-scopify/issues/7
   it('should not scope keyframe definitions', function() {
@@ -75,7 +88,6 @@ describe('postcss-scopify', function() {
 
     assert.equal(output, expected);
   });
-
 
   it('should not scope LESS/SASS style nested rules', function() {
     var output = postcss()
