@@ -24,6 +24,9 @@ for a command line interface, see [scopify-cli].
 [downloads-image]: https://img.shields.io/npm/dm/postcss-scopify.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/postcss-scopify
 
+[scopify-cli]: https://github.com/pazams/scopify-cli
+[PostCSS]: https://github.com/postcss/postcss
+
 __Example input__
 
 ```css
