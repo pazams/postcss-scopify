@@ -73,11 +73,7 @@ function isValidScope(scope) {
  */
 function isRuleScopable(rule){
 
-    if (!rule.selectors){
-        return false;
-    }
-
-    else if(rule.parent.type !== 'root') {
+    if(rule.parent.type !== 'root') {
         if (rule.parent.type === 'atrule' && conditionalGroupRules.indexOf(rule.parent.name) > -1){
             return true;
         }
