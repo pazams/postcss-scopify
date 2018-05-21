@@ -4,7 +4,7 @@ before_install:
   - "export DISPLAY=:99.0"
 
 node_js:
-  - '0.10'
+  - '4'
 
 before_script:
 # - 'npm run lint'

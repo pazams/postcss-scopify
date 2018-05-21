@@ -1,5 +1,6 @@
 'use strict';
 var postcss = require('postcss');
+var selectorParser = require('postcss-selector-parser');
 
 var  conditionalGroupRules = ['media','supports','document'];
 
@@ -8,6 +9,22 @@ module.exports = postcss.plugin('postcss-scopify', scopify);
 function scopify(scope, options) {
 
     options = options || {};
+
+    // special case for the '&' selector, resolves to scope
+    var processor = selectorParser(function (selectors) {
+        var hasNestingSelector = false;
+        selectors.walkNesting(function (selector) {
+            hasNestingSelector = true;
+            selector.replaceWith(
+                selectorParser.string({value: scope})
+            );
+        });
+        if (!hasNestingSelector) {
+            selectors.first.prepend(
+                selectorParser.string({value: scope + ' '})
+            );
+        }
+    });
 
     return function(root) {
 
@@ -28,12 +45,7 @@ function scopify(scope, options) {
                     return selector;
                 }
 
-                // special case for a top level '&' selector, resolves to scope
-                if (selector === '&') {
-                    return scope;
-                }
-
-                return scope + ' ' + selector;
+                return processor.processSync(selector);
 
             });
         });

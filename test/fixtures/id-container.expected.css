@@ -1,0 +1,29 @@
+#boo .Component {
+  color: green;
+}
+
+#boo {
+  color: green;
+}
+
+#boo > .Component {
+  color: red;
+}
+
+.Wrapper > #boo {
+  color: red;
+}
+
+#boo #boo {
+  color: pink;
+}
+
+#boo.Other {
+  color: pink;
+}
+
+#boo .WithAmpersand,
+#boo .Other,
+#boo .Component {
+  color: orange;
+}
