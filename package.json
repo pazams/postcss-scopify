@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/pazams/postcss-scopify",
   "dependencies": {
-    "postcss": "^5.0.0"
+    "postcss": "^5.0.0",
+    "postcss-selector-parser": "^6.0.2"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",

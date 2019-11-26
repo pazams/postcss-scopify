@@ -1,3 +1,4 @@
+'use strict';
 var assert    = require('assert');
 var fs        = require('fs');
 var postcss   = require('postcss');
@@ -26,14 +27,23 @@ describe('postcss-scopify', function() {
     assert.equal(output, expected);
   });
 
-  it('replaces & selector with a scope', function() {
-    var output = postcss()
-                .use(scopify('.boo'))
-                .process(fixture('class-container.css')).css;
-    var expected = fixture('class-container.expected.css');
+    it('replaces & selector with an id scope', function() {
+        var output = postcss()
+            .use(scopify('#boo'))
+            .process(fixture('id-container.css')).css;
+        var expected = fixture('id-container.expected.css');
 
-    assert.equal(output, expected);
-  });
+        assert.equal(output, expected);
+    });
+
+    it('replaces & selector with a class scope', function() {
+        var output = postcss()
+            .use(scopify('.boo'))
+            .process(fixture('class-container.css')).css;
+        var expected = fixture('class-container.expected.css');
+
+        assert.equal(output, expected);
+    });
 
   it('does NOT adds a scope if it already exists', function() {
     var output = postcss()
