@@ -39,7 +39,7 @@ __Example input__
 }
 ```
 __Example output__
-`scopify('#scope')`
+`scopify('#scope')` or `scopify({scope: '#scope'})`
 ```css
 #scope .foo, #scope .boo h1 {
     /* declarations */
@@ -76,6 +76,11 @@ Note there are plugins for [Grunt], [Gulp], [webpack], [Broccoli],
 See [PostCSS] docs for examples for your environment.
 
 ## Change Log
+### v1.0.0
+- update all deps to latest versions
+- update plugin syntax for postCss v8+
+- allow pass scope as object (because postcss+webpack)
+
 ### v0.1.8
 closes [#10](https://github.com/pazams/postcss-scopify/issues/10)
 
