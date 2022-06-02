@@ -59,7 +59,7 @@ function scopify(scope, options) {
  * @param {string} scope
  */
 function isScopeApplied(selector,scope) {
-    var selectorTopScope = selector.split(" ",1)[0];
+    var selectorTopScope = selector.split(' ', 1)[0];
     return selectorTopScope === scope;
 }
 
@@ -86,7 +86,10 @@ function isValidScope(scope) {
 function isRuleScopable(rule){
 
     if(rule.parent.type !== 'root') {
-        if (rule.parent.type === 'atrule' && conditionalGroupRules.indexOf(rule.parent.name) > -1){
+        if (
+            rule.parent.type === 'atrule' &&
+            conditionalGroupRules.indexOf(rule.parent.name) > -1
+        ) {
             return true;
         }
         else {
