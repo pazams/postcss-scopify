@@ -18,15 +18,6 @@ describe('postcss-scopify', function() {
     assert.strictEqual(output, expected);
   });
 
-  it('pass scope as object', function() {
-      const output = postcss()
-          .use(scopify({scope: '#foo'}))
-          .process(fixture('id.css')).css;
-      const expected = fixture('id.expected.css');
-  
-      assert.strictEqual(output, expected);
-  });
-  
   it('scopes all selectors with a class', function() {
     const output = postcss()
                 .use(scopify('.boo'))
@@ -87,6 +78,27 @@ describe('postcss-scopify', function() {
           assert.strictEqual(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
       }
 
+  });
+
+  it('allows scope as object input', function() {
+      const output = postcss()
+          .use(scopify({scope: '#foo'}))
+          .process(fixture('id.css')).css;
+      const expected = fixture('id.expected.css');
+
+      assert.strictEqual(output, expected);
+  });
+
+  it('does not allow scope as object input with wrong key', function() {
+      try
+      {
+           postcss()
+          .use(scopify({wrongKey: '#foo'}))
+          .process(fixture('id.css')).css;
+      }
+      catch(error){
+          assert.strictEqual(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+      }
   });
 
   // https://github.com/pazams/postcss-scopify/issues/7
