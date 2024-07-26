@@ -1,6 +1,6 @@
 # PostCSS Scopify
 
-[![Build status][travis-image]][travis-url]
+[![Node.js CI](https://github.com/pazams/postcss-scopify/actions/workflows/node.js.yml/badge.svg)](https://github.com/pazams/postcss-scopify/actions/workflows/node.js.yml)
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Downloads][downloads-image]][downloads-url]
 
