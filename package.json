@@ -1,6 +1,6 @@
 {
   "name": "postcss-scopify",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "PostCSS plugin that adds a user input scope to each selector",
   "keywords": [
     "postcss",
@@ -21,14 +21,17 @@
   },
   "homepage": "https://github.com/pazams/postcss-scopify",
   "dependencies": {
-    "postcss": "^5.0.0",
-    "postcss-selector-parser": "^6.0.2"
+    "postcss-selector-parser": "^6.0.6"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
-    "mocha": "^3.0.2"
+    "mocha": "^8.4.0",
+    "postcss": "^8.3.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.3.0"
   },
   "scripts": {
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -u exports test/*.js"
+    "test": "istanbul cover ./node_modules/.bin/mocha  test/*.js"
   }
 }

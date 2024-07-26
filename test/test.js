@@ -1,8 +1,8 @@
 'use strict';
-var assert    = require('assert');
-var fs        = require('fs');
-var postcss   = require('postcss');
-var scopify = require('..');
+const assert    = require('assert');
+const fs        = require('fs');
+const postcss   = require('postcss');
+const scopify = require('..');
 
 function fixture(name) {
   return fs.readFileSync('test/fixtures/' + name, 'utf8').trim();
@@ -10,48 +10,57 @@ function fixture(name) {
 
 describe('postcss-scopify', function() {
   it('scopes all selectors with an id', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('#foo'))
                 .process(fixture('id.css')).css;
-    var expected = fixture('id.expected.css');
+    const expected = fixture('id.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
+  it('pass scope as object', function() {
+      const output = postcss()
+          .use(scopify({scope: '#foo'}))
+          .process(fixture('id.css')).css;
+      const expected = fixture('id.expected.css');
+  
+      assert.strictEqual(output, expected);
+  });
+  
   it('scopes all selectors with a class', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('.boo'))
                 .process(fixture('class.css')).css;
-    var expected = fixture('class.expected.css');
+    const expected = fixture('class.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
     it('replaces & selector with an id scope', function() {
-        var output = postcss()
+        const output = postcss()
             .use(scopify('#boo'))
             .process(fixture('id-container.css')).css;
-        var expected = fixture('id-container.expected.css');
+        const expected = fixture('id-container.expected.css');
 
-        assert.equal(output, expected);
+        assert.strictEqual(output, expected);
     });
 
     it('replaces & selector with a class scope', function() {
-        var output = postcss()
+        const output = postcss()
             .use(scopify('.boo'))
             .process(fixture('class-container.css')).css;
-        var expected = fixture('class-container.expected.css');
+        const expected = fixture('class-container.expected.css');
 
-        assert.equal(output, expected);
+        assert.strictEqual(output, expected);
     });
 
   it('does NOT adds a scope if it already exists', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('.boo'))
                 .process(fixture('exisiting.css')).css;
-    var expected = fixture('exisiting.expected.css');
+    const expected = fixture('exisiting.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
   it('does not allow invliad scopes', function() {
@@ -62,7 +71,7 @@ describe('postcss-scopify', function() {
           .process(fixture('id.css')).css;
       }
       catch(error){
-          assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+          assert.strictEqual(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
       }
 
   });
@@ -75,37 +84,37 @@ describe('postcss-scopify', function() {
           .process(fixture('id.css')).css;
       }
       catch(error){
-          assert.equal(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
+          assert.strictEqual(error.name+'.'+error.reason, 'CssSyntaxError.invalid scope');
       }
 
   });
 
   // https://github.com/pazams/postcss-scopify/issues/7
   it('should not scope keyframe definitions', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('#foo'))
                 .process(fixture('keyframe.css')).css;
-    var expected = fixture('keyframe.expected.css');
+    const expected = fixture('keyframe.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
   it('should not scope at-rules, but do scope their nested rules for conditional groups at-rules only', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('.boo'))
                 .process(fixture('at-rules.css')).css;
-    var expected = fixture('at-rules.expected.css');
+    const expected = fixture('at-rules.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
   it('should not scope LESS/SASS style nested rules', function() {
-    var output = postcss()
+    const output = postcss()
                 .use(scopify('.boo'))
                 .process(fixture('nested.css')).css;
-    var expected = fixture('nested.expected.css');
+    const expected = fixture('nested.expected.css');
 
-    assert.equal(output, expected);
+    assert.strictEqual(output, expected);
   });
 
 
