@@ -23,12 +23,10 @@ const isScopeApplied = (selector, scope) => {
  * @param {string} scope
  */
 const isValidScope = scope => {
-    if (scope){
-        return scope.indexOf(',') ===  -1;
-    } else {
+    if (!scope){
         return false;
     }
-
+    return scope.indexOf(',') ===  -1;
 }
 
 /**
@@ -37,28 +35,32 @@ const isValidScope = scope => {
  * @param {Rule} rule
  */
 const isRuleScopable = rule => {
-
     if(rule.parent.type !== 'root') {
         return rule.parent.type === 'atrule' && conditionalGroupRules.indexOf(rule.parent.name) > -1;
     } else {
         return  true;
     }
+}
 
+/**
+ * extract the scope from the input given by caller
+ *
+ * @param {string | Record<string, string>} options
+ */
+const extractScope = (options) => {
+    if (typeof options === 'string') {
+	    return options;
+    } else if (isObject(options) && options.scope) {
+            return options.scope
+    }
+    return null;
 }
 
 const scopify = (options) => {
-
-    let scope;
-
-    if (typeof options === 'string') {
-        scope = options;
-    } else if (isObject(options) && options.scope) {
-        scope = options.scope
-    }
-
     return {
         postcssPlugin: 'postcss-scopify',
         Once (root, { result }) {
+            const scope = extractScope(options);
             // guard statment- allow only valid scopes
             if(!isValidScope(scope)){
                 throw root.error('invalid scope', { plugin: 'postcss-scopify' });
