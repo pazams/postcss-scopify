@@ -56,10 +56,20 @@ const extractScope = (options) => {
     return null;
 }
 
-const scopify = (options) => {
+const scopify = (options, { exclude = [] } = {}) => {
+    const excludePatterns = exclude.map(pattern => {
+        return pattern instanceof RegExp ? pattern : new RegExp(pattern);
+    });
+
     return {
         postcssPlugin: 'postcss-scopify',
         Once (root, { result }) {
+            const filePath = result.opts.from || '';
+            // Use regular expressions to check if a file is in the exclusion list.
+            if (excludePatterns.some(pattern => pattern.test(filePath))) {
+                return;
+            }
+
             const scope = extractScope(options);
             // guard statment- allow only valid scopes
             if(!isValidScope(scope)){
